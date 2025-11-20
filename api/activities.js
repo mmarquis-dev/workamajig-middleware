@@ -18,7 +18,10 @@ export default async function handler(req, res) {
     });
     res.status(200).json(response.data);
   } catch (error) {
-    console.error(error.response?.data || error.message);
-    res.status(500).json({ error: 'Something went wrong' });
-  }
+  console.error("Workamajig API error:", error?.response?.data || error.message);
+  res.status(500).json({
+    error: 'Something went wrong',
+    detail: error?.response?.data || error.message
+  });
+}
 }
