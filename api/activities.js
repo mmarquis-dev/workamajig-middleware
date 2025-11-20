@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     UserToken: process.env.USER_TOKEN
   };
 
-  const url = `https://www.app18.workamajig.com/api/beta1/activities/search`;
+  const url = `https://app18.workamajig.com/api/beta1/activities/search`;
 
   try {
     const response = await axios.get(url, {
