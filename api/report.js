@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await axios.post(
-      'https://app18.workamajig.com/api/beta1/report',
+      'https://app18.workamajig.com/api/beta1/reports?reportKey=',
       { reportKey },
       {
         headers: {
