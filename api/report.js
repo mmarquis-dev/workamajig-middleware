@@ -5,16 +5,16 @@ export default async function handler(req, res) {
   const reportKey = process.env.REPORT_KEY;
 
   try {
-    const response = await axios.post(
-      'https://app18.workamajig.com/api/beta1/reports?ReportKey=',
-      { reportKey },
-      {
-        headers: {
-          APIAccessToken: process.env.API_ACCESS_TOKEN,
-          UserToken: process.env.USER_TOKEN
-        }
-      }
-    );
+    const response = await axios.get(
+  'https://app18.workamajig.com/api/beta1/reports',
+  {
+    params: { ReportKey: process.env.REPORT_KEY },
+    headers: {
+      APIAccessToken: process.env.API_ACCESS_TOKEN,
+      UserToken: process.env.USER_TOKEN
+    }
+  }
+);
     res.status(200).json(response.data);
   } catch (error) {
     console.error('Report error:', error?.response?.data || error.message);
